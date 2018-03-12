@@ -24,7 +24,7 @@ class Query extends PluginTask{
         $this->plugin = $plugin;
     }
 
-    public function onRun($currentTick){
+    public function onRun(int $currentTick){
     	$this->plugin = $this->getOwner();
     	$this->cfg = $this->plugin->getConfig()->getAll();
     	$query = $this->plugin->getQuery($this->plugin->getChannel());
