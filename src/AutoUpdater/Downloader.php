@@ -30,4 +30,3 @@ class Downloader extends AsyncTask{
     	}
     }
 }
-?>
