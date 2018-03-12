@@ -103,4 +103,3 @@ class Main extends PluginBase{
     	return $tmp["timeout"];
     }
 }
-?>
