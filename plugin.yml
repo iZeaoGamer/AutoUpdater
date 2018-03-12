@@ -1,7 +1,7 @@
 name: AutoUpdater
 main: AutoUpdater\Main
 version: "1.1"
-api: [1.8.0]
+api: [3.0.0-ALPHA11]
 load: STARTUP
 author: EvolSoft
 description: Update PocketMine automatically
