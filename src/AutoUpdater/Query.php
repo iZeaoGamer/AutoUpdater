@@ -63,4 +63,3 @@ class Query extends PluginTask{
 		}
     }
 }
-?>
