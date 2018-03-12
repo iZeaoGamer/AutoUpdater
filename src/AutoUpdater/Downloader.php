@@ -23,7 +23,7 @@ class Downloader extends AsyncTask{
         $this->dest = $dest;
     }
 
-    public function onRun(){
+    public function onRun() : void{
     	$out = Utils::getURL($this->source);
     	if(is_string($out)){
     		file_put_contents($this->dest, $out);
