@@ -30,7 +30,7 @@ class Update extends PluginBase implements CommandExecutor{
         $this->plugin = $plugin;
     }
     
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : void {
     	$fcmd = strtolower($cmd->getName());
     	switch($fcmd){
     		case "update":
@@ -57,15 +57,19 @@ class Update extends PluginBase implements CommandExecutor{
     							shell_exec($this->plugin->getStartScript());
     						}else{
     							$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&cCan't update PocketMine, an error has occurred"));
+							return true;
     						}
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&aYour PocketMine version is already up to date."));
+						return true;
     					}
     				}else{
     					$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&cCan't update PocketMine, an error has occurred"));
+					return true;
     				}
     			}else{
     				$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+				return true;
     				break;
     			}
     	}
