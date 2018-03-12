@@ -30,7 +30,7 @@ class Main extends PluginBase{
 	//Other Const
 	//Prefix
 	const PREFIX = "&7[&9Auto&aUpdater&7] ";
-	const API_URL = "https://jenkins.pmmp.io/job/PocketMine-MP/lastSuccessfulBuild/artifact/build_info.json";
+	const API_URL = "https://jenkins.pmmp.io/api/json?tree=jobs[name]";
 	
     public $cfg;
 
