@@ -27,7 +27,7 @@ class Commands extends PluginBase implements CommandExecutor{
         $this->plugin = $plugin;
     }
     
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : void {
     	$fcmd = strtolower($cmd->getName());
     	switch($fcmd){
     		case "autoupdater":
@@ -40,35 +40,43 @@ class Commands extends PluginBase implements CommandExecutor{
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/au help &9-&e Show help about this plugin"));
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/au reload &9-&e Reload the config"));
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/update &9-&e Update PocketMine"));
+						return true;
     						break;
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+						return true;
     						break;
     					}
     				}elseif($args[0]=="info"){
     					if($sender->hasPermission("autoupdater.info")){
     						$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&eAutoUpdater &9v" . Main::VERSION . " &edeveloped by&9 " . Main::PRODUCER));
     						$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&eWebsite &9" . Main::MAIN_WEBSITE));
+						return true;
     				        break;
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+						return true;
     						break;
     					}
     				}elseif($args[0]=="reload"){
     					if($sender->hasPermission("autoupdater.reload")){
     						$this->plugin->reloadConfig();
     						$sender->sendMessage($this->plugin->translateColors("&", Main::PREFIX . "&aConfiguration Reloaded."));
+						return true;
     				        break;
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+						return true;
     						break;
     					}
     				}else{
     					if($sender->hasPermission("autoupdater")){
     						$sender->sendMessage($this->plugin->translateColors("&",  Main::PREFIX . "&cSubcommand &a" . $args[0] . " &cnot found. Use &a/au help &cto show available commands"));
+						return true;
     						break;
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+						return true;
     						break;
     					}
     				}
@@ -79,9 +87,11 @@ class Commands extends PluginBase implements CommandExecutor{
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/au help &9-&e Show help about this plugin"));
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/au reload &9-&e Reload the config"));
     						$sender->sendMessage($this->plugin->translateColors("&", "&e/update &9-&e Update PocketMine"));
+						return true;
     						break;
     					}else{
     						$sender->sendMessage($this->plugin->translateColors("&", "&cYou don't have permissions to use this command"));
+						return true;
     						break;
     					}
     				}
